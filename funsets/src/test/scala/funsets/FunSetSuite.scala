@@ -143,4 +143,14 @@ class FunSetSuite extends FunSuite {
       assert(!contains(filter(s1, x => x == 2), 1), "Filter doesn't contains element")
     }
   }
+  
+  test("forall with equal functions") {
+    new TestSets {
+      
+      assert(forall(x => x % 2 == 0, x => x % 2 == 0), "Forall with equal functions")
+      assert(!forall(x => x % 2 == 0, x => x % 3 == 1), "Forall with diff functions (must be false)")
+      
+//      assert(!contains(filter(s1, x => x == 2), 1), "Filter doesn't contains element")
+    }
+  }
 }

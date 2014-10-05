@@ -148,7 +148,16 @@ class FunSetSuite extends FunSuite {
     new TestSets {
       
       assert(forall(x => x % 2 == 0, x => x % 2 == 0), "Forall with equal functions")
-      assert(!forall(x => x % 2 == 0, x => x % 3 == 1), "Forall with diff functions (must be false)")
+      assert(!forall(x => x % 2 == 0, x => x % 3 == 1), "Forall with diff functions (must be false)")   
+    }
+  }
+  
+  test("exists with equal functions") {
+    new TestSets {
+      
+      assert(exists(x => x % 2 == 0, x => x % 2 == 0), "Exists with equal functions")
+      assert(exists(x => x % 2 == 0, x => x % 3 == 1), "Exists with diff functions but should exist")
+      assert(!exists(x => x % 2 == 0, x => x % 2 == 1), "Don't Exists with conflicting functions")
       
 //      assert(!contains(filter(s1, x => x == 2), 1), "Filter doesn't contains element")
     }

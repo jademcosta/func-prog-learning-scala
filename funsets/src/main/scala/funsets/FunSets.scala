@@ -74,11 +74,15 @@ object FunSets {
     }
     iter(-1000)
   }
+  /* The answer should be: def exists(s: Set, p: Int => Boolean): Boolean = !forall(s, (x => !p(x))) */
+  
+  
   /**
    * Returns a set transformed by applying `f` to each element of `s`.
    */
   def map(s: Set, f: Int => Int): Set = ???
-
+  /* The answer should be: def map(s: Set, f: Int => Int): Set = (e:Int) => exists(s, (x => f(x) == e)) */
+  
   /**
    * Displays the contents of a set
    */

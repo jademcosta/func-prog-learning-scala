@@ -1,6 +1,10 @@
 *.class
 .metadata
 */**/.cache
+.classpath
+.settings/
+
+
 
 # Created by https://www.gitignore.io
 

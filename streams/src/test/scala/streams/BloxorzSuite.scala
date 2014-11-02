@@ -53,6 +53,24 @@ class BloxorzSuite extends FunSuite {
     }
   }
 
+  
+  test("function newNeighborsOnly works") {
+    new Level1 {
+	    val neighborsFiltered = newNeighborsOnly(
+		  Set(
+		    (Block(Pos(1,2),Pos(1,3)), List(Right,Left,Up)),
+		    (Block(Pos(2,1),Pos(3,1)), List(Down,Left,Up))
+		  ).toStream,
+		
+		  Set(Block(Pos(1,2),Pos(1,3)), Block(Pos(1,1),Pos(1,1)))
+		)
+		
+		assert(neighborsFiltered.length === 1)
+		assert(neighborsFiltered(0)._1 === Block(Pos(2,1), Pos(3,1)))
+		assert(neighborsFiltered(0)._2 === List(Down,Left,Up))
+    }
+  }
+  
   test("optimal solution for level 1") {
     new Level1 {
       assert(solve(solution) == Block(goal, goal))
